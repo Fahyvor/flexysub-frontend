@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './component/Nav';
 import Home from './pages/Home';
@@ -12,6 +11,7 @@ import AirtimeToCash from './pages/AirtimeToCash';
 import TransactionHistory from './pages/TransactionHistory';
 import Profile from './pages/Profile';
 import Support from './pages/Support';
+import Footer from './component/Footer';
 
 function App() {
   return (
@@ -28,11 +28,11 @@ function App() {
           <Route path="/cable-subscription" element={<CableSubscription />} />
           <Route path="/airtime-to-cash" element={<AirtimeToCash />} />
           <Route path="/history" element={<TransactionHistory />} />
-          <Route path="/history" element={<TransactionHistory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/support" element={<Support />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

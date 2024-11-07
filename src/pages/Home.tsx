@@ -16,6 +16,10 @@ const Home: React.FC = () => {
                 <Link to="/betting-fund" className=" flex flex-col gap-2 items-center shadow-lg p-3 hover:bg-gold border-t-4 border-gold"> <IoFootball className='w-12 h-12' /> <p>Betting Fund</p></Link>
                 <Link to="/airtime-to-cash" className=' flex flex-col gap-2 items-center shadow-lg p-3 hover:bg-gold border-t-4 border-gold'>
                 <GiCash  className='w-12 h-12'/> <p>Airtime To Cash</p></Link>
+                <Link to="/cable-subscription" className=' flex flex-col gap-2 items-center shadow-lg p-3 hover:bg-gold border-t-4 border-gold'>
+                <GiCash  className='w-12 h-12'/> <p>Cable Subscription</p></Link>
+                <Link to="/history" className=' flex flex-col gap-2 items-center shadow-lg p-3 hover:bg-gold border-t-4 border-gold'>
+                <GiCash  className='w-12 h-12'/> <p>Transaction History</p></Link>
             </div>
         </div>
     )

@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Nav from './component/Nav';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import TopUp from './pages/TopUp';
+import ElectricityBill from './pages/ElectricityBill';
+import BettingFund from './pages/BettingFund';
+import CableSubscription from './pages/CableSubscription';
+import AirtimeToCash from './pages/AirtimeToCash';
+import TransactionHistory from './pages/TransactionHistory';
+import Profile from './pages/Profile';
+import Support from './pages/Support';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <Nav />
+      <div className="container mx-auto px-4 py-8">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/topup" element={<TopUp />} />
+          <Route path="/electricity-bill" element={<ElectricityBill />} />
+          <Route path="/betting-fund" element={<BettingFund />} />
+          <Route path="/cable-subscription" element={<CableSubscription />} />
+          <Route path="/airtime-to-cash" element={<AirtimeToCash />} />
+          <Route path="/history" element={<TransactionHistory />} />
+          <Route path="/history" element={<TransactionHistory />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/support" element={<Support />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

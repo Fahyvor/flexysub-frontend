@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './component/Nav';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <Nav />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 lg:h-full md:h-full h-[89vh] flex flex-col">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

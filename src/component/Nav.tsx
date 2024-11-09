@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBarsProgress } from "react-icons/fa6";
 import { GiCancel } from 'react-icons/gi';
-// import Logo from '../assets/logo.png';
+import Logo from '../assets/logo.png';
 
 const Nav: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,11 +11,14 @@ const Nav: React.FC = () => {
         <div className="bg-red-600 p-4 bottom-0">
             <div className="flex justify-between items-center text-white">
                 <Link to="/" className="text-xl font-bold">
-                    {/* <img src={Logo} alt='' className='w-10 h-10'/> */}
-                    <p>FLEXYSUB</p>
+                    <img src={Logo} alt='' className='w-16 h-10'/>
+                    {/* <p>FLEXYSUB</p> */}
                 </Link>
                 <div className='lg:flex md:flex hidden'>
                     <p>Balance: <span className='font-bold'>N1,000</span></p>
+                </div>
+                <div className='fund_wallet text-center px-5 cursor-pointer mx-auto bg-transparent py-2 border-2 border-white rounded-lg font-bold'>
+                    <p>Fund Wallet</p>
                 </div>
                 <div className="space-x-4 lg:flex md:flex hidden">
                     <Link to="/dashboard">Dashboard</Link>

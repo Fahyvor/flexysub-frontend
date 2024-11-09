@@ -23,9 +23,9 @@ const Home: React.FC = () => {
                 <MdHistoryEdu  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Transaction History</p></Link>
             </div>
 
-            <div className='fund_wallet lg:w-1/2 md:1/2 w-full cursor-pointer rounded-lg bg-gold py-3'>
+            {/* <div className='fund_wallet lg:w-1/2 md:1/2 w-full cursor-pointer rounded-lg bg-gold py-3'>
                 <p>Fund Wallet</p>
-            </div>
+            </div> */}
         </div>
     )
 }

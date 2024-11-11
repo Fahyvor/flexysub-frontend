@@ -14,11 +14,8 @@ const Nav: React.FC = () => {
                     <img src={Logo} alt='' className='w-16 h-10'/>
                     {/* <p>FLEXYSUB</p> */}
                 </Link>
-                <div className='lg:flex md:flex hidden'>
+                <div className=''>
                     <p>Balance: <span className='font-bold'>N1,000</span></p>
-                </div>
-                <div className='fund_wallet text-center px-5 cursor-pointer mx-auto bg-transparent py-2 border-2 border-white rounded-lg font-bold'>
-                    <p>Fund Wallet</p>
                 </div>
                 <div className="space-x-4 lg:flex md:flex hidden">
                     <Link to="/dashboard">Dashboard</Link>
@@ -38,9 +35,9 @@ const Nav: React.FC = () => {
                 <div className="p-4 pt-6">
                     <Link to="/dashboard" className="block py-2">Dashboard</Link>
                     <Link to="/profile" className="block py-2">Profile</Link>
-                    <div className='my-2'>
+                    {/* <div className='my-2'>
                         <p>Balance: <span className='font-bold'>N1,000</span></p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

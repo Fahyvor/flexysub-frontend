@@ -6,17 +6,17 @@ import Logo from '../assets/logo.png';
 
 const Nav: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [name, setName] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // useEffect(() => {
-    //     const userDetails = JSON.parse(localStorage.getItem('userData'));
-    //     if(userDetails) {
-    //         setName(userDetails.name)
-    //     } else {
-    //         setName('')
-    //     }
-    // })
-
+    useEffect(() => {
+        try {
+            const userDetails = JSON.parse(localStorage.getItem('userData') || 'null');
+            setIsLoggedIn(!!userDetails);
+        } catch (error) {
+            console.error("Failed to parse user data from localStorage:", error);
+            setIsLoggedIn(false);
+        }
+    }, []); 
     return (
         <div className="bg-red-600 p-4 bottom-0">
             <div className="flex justify-between items-center text-white">
@@ -44,7 +44,10 @@ const Nav: React.FC = () => {
             >
                 <div className="p-4 pt-6">
                     <Link to="/dashboard" className="block py-2" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
+                    {isLoggedIn ? 
                     <Link to="/profile" className="block py-2" onClick={() => setIsMenuOpen(false)}>Profile</Link>
+                    : <Link to="/login" className="block py-2" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                    }
                     {/* <div className='my-2'>
                         <p>Balance: <span className='font-bold'>N1,000</span></p>
                     </div> */}

@@ -22,15 +22,22 @@ const Login: React.FC = () => {
                 console.log(response.data.data);
                 localStorage.setItem('userToken', response.data.data.token);
                 localStorage.setItem('userData', JSON.stringify(response.data.data.user));
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 3000);
+            } else {
+                return;
             }
-        } catch (error: any) {
-            console.log('Login failed:', error);
-            return toast.error(error);
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.log('Login failed:', error.message);
+                toast.error(error.response?.data?.message || 'An error occurred');
+            } else {
+                console.log('Unexpected error:', error);
+                toast.error('An unexpected error occurred');
+            }
         } finally {
             setIsLoading(false);
-            setTimeout(() => {
-                window.location.href = "/";
-            }, 3000);
         }
     };
 

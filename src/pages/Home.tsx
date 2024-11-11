@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { IoBarChartSharp } from "react-icons/io5";
 import { FaRegLightbulb } from "react-icons/fa";
@@ -7,8 +7,24 @@ import { GiCash } from "react-icons/gi";
 import { MdOutlineScreenshotMonitor, MdHistoryEdu } from "react-icons/md";
 
 const Home: React.FC = () => {
+    const [name, setName] = useState('');
+
+    useEffect(() => {
+        try {
+            const userDetails = JSON.parse(localStorage.getItem('userData') || '{}');
+            if (userDetails && userDetails.name) {
+                setName(userDetails.name);
+            } else {
+                setName('');
+            }
+        } catch (error) {
+            console.error('Failed to parse user data from local storage:', error);
+            setName('');
+        }
+    }, []);
     return (
         <div className="text-center space-y-4">
+            <p className='text-start font-bold'>Hello, {name}</p>
             <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold">Welcome to FlexySub</h2>
             <p>Select a service to get started:</p>
             <div className='fund_wallet lg:w-1/2 md:1/2 w-full mx-auto cursor-pointer rounded-lg bg-gold py-3'>

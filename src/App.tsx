@@ -12,15 +12,17 @@ import TransactionHistory from './pages/TransactionHistory';
 import Profile from './pages/Profile';
 import Support from './pages/Support';
 import Footer from './component/Footer';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
     <Router>
       <Nav />
-      <div className="container mx-auto px-4 py-8 lg:h-full md:h-full h-[89vh] flex flex-col">
+      <div className="container mx-auto px-4 py-8 lg:h-full md:h-full flex flex-col">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/topup" element={<TopUp />} />
           <Route path="/electricity-bill" element={<ElectricityBill />} />

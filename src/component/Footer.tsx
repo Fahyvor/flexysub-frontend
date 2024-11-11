@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className='bg-red-600 text-white flex justify-center py-3'>
+        <div className='bg-red-600 text-white flex justify-center py-3 fixed bottom-0 w-full'>
             <small className='text-center font-bold'>&copy; Flexysub {currentYear}</small>
         </div>
     )

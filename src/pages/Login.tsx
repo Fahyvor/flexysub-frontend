@@ -31,7 +31,7 @@ const Login: React.FC = () => {
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.log('Login failed:', error.message);
-                toast.error(error.response?.data?.message || 'An error occurred');
+                toast.error(error.response?.data?.error || 'An error occurred');
             } else {
                 console.log('Unexpected error:', error);
                 toast.error('An unexpected error occurred');

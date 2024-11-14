@@ -22,12 +22,16 @@ const Home: React.FC = () => {
             setName('');
         }
     }, []);
+
+    const fundWallet = () => {
+        window.location.href="/fund-wallet"
+    }
     return (
         <div className="text-center space-y-4">
             <p className='text-start font-bold'>Hello, {name}</p>
             <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold">Welcome to FlexySub</h2>
             <p>Select a service to get started:</p>
-            <div className='fund_wallet lg:w-1/2 md:1/2 w-full mx-auto cursor-pointer rounded-lg bg-gold py-3'>
+            <div className='fund_wallet lg:w-1/2 md:1/2 w-full mx-auto cursor-pointer rounded-lg bg-gold py-3' onClick={fundWallet}>
                 <p>Fund Wallet</p>
             </div>
             <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 pt-4'>

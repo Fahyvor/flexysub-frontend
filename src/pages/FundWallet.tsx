@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react'
 
 interface UserDetails {
     accountNumber?: string;
     accountName?: string;
 }
 
-const Profile: React.FC = () => {
+const FundWallet: React.FC = () => {
     const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
     useEffect(() => {
@@ -16,7 +16,6 @@ const Profile: React.FC = () => {
             window.location.href = '/login';
         }
     }, []);
-
     return (
         <div className='w-full flex flex-col gap-7 py-14'>
             <div className='flex flex-col items-center gap-5'>
@@ -29,7 +28,7 @@ const Profile: React.FC = () => {
                 <p className='font-bold lg:text-4xl md:text-4xl'>{userDetails?.accountName || 'Not available'}</p>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Profile;
+export default FundWallet

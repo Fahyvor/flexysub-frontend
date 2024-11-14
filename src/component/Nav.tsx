@@ -27,9 +27,12 @@ const Nav: React.FC = () => {
                 <div className=''>
                     <p>Balance: <span className='font-bold'>N1,000</span></p>
                 </div>
-                <div className="space-x-4 lg:flex md:flex hidden">
+                <div className="space-x-4 lg:flex md:flex hidden items-center">
                     <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/profile">Profile</Link>
+                    {isLoggedIn ? 
+                    <Link to="/profile" className="block py-2" onClick={() => setIsMenuOpen(false)}>Profile</Link>
+                    : <Link to="/login" className="block py-2" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                    }
                 </div>
 
                 <div className='lg:hidden md:hidden flex'>

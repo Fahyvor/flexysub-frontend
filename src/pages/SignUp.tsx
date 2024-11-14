@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { API_URL } from '../axios/apiUrl'
+import { API_URL } from '../axios/apiUrl';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -29,25 +29,27 @@ const SignUp: React.FC = () => {
   
       console.log('Sign-up successful:', response.data);
       toast.success(response.data.message);
-    } catch (error: any) {
-    //   console.error('Sign-up failed:', error.response ? error.response.data : error.message);
-      if (error.response && error.response.data && error.response.data.error) {
-        return toast.error(error.response ? error.response.data.message : error.message);
-      } else {
-        return toast.error("Unknown Error");
-    }
-} finally {
-    setIsLoading(false);
-    setTimeout(() => {
-        window.location.href = "/login";
-    }, 3000);
-}
-};
   
-
+      // Redirect to login only if sign-up is successful
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 3000);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        if (error.response && error.response.data && error.response.data.error) {
+          toast.error(error.response.data.message);
+        }
+      } else {
+        toast.error("Unknown Error");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
   return (
     <div>
-    <div className='toastify-message'>
+      <div className='toastify-message'>
         <ToastContainer />
       </div>
       <h2 className='text-2xl font-bold mx-auto text-center my-3'>Welcome to Flexysub!</h2>

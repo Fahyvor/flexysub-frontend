@@ -1,9 +1,12 @@
+// import axios from 'axios';
 import React, { useState } from 'react';
+// import {  VTU_URL } from '../axios/apiUrl'
 
 const TopUp: React.FC = () => {
     const [network, setNetwork] = useState('');
     const [amount, setAmount] = useState('');
     const [number, setNumber] = useState('');
+    const [service, setService] = useState('');
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
@@ -11,6 +14,7 @@ const TopUp: React.FC = () => {
         console.log('Network:', network);
         console.log('Amount:', amount);
         console.log('Number:', number);
+        console.log('Service:', service);
     };
 
     return (
@@ -26,19 +30,19 @@ const TopUp: React.FC = () => {
                         className='p-2 outline-none rounded-lg px-5'
                     >
                         <option value="">Select a network</option>
-                        <option value="MTN">MTN</option>
-                        <option value="Airtel">Airtel</option>
-                        <option value="Glo">Glo</option>
-                        <option value="9mobile">9mobile</option>
+                        <option value="1">MTN</option>
+                        <option value="2">Airtel</option>
+                        <option value="3">Glo</option>
+                        <option value="4">9mobile</option>
                     </select>
                 </div>
 
                 <div className='flex flex-col gap-3'>
                     <label htmlFor="network" className='text-semibold'>Airtime/Data:</label>
                     <select 
-                        id="sevice" 
-                        value={network} 
-                        onChange={(e) => setNetwork(e.target.value)}
+                        id="service" 
+                        value={service} 
+                        onChange={(e) => setService(e.target.value)}
                         required
                         className='p-2 outline-none rounded-lg px-5'
                     >

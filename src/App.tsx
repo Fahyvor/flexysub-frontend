@@ -21,6 +21,7 @@ function App() {
       <Nav />
       <div className="container mx-auto px-4 py-8 lg:h-full md:h-full flex flex-col">
         <Routes>
+          <Route path="*" element={<div className='font-bold text-xl flex py-[20%]'><p className='mx-auto my-auto'>Page Not Found</p></div>} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

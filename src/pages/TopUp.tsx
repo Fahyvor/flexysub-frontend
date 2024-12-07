@@ -14,13 +14,17 @@ const TopUp: React.FC = () => {
 
     const [dataPlans, setDataPlans] = useState<string[]>([]);
     const [dataAmount, setDataAmount] = useState<string[]>([]);
+    const [showDataPlansInput, setDataPlansInput] = useState<boolean>(false)
 
     useEffect(() => {
         const fetchDataPlans = async () => {
-            if(formData.service === "Data") {
+            if (formData.service !== "Data") {
+                setDataPlansInput(false);
                 return;
             }
-
+    
+            setDataPlansInput(true);
+    
             try {
                 const response = await axios.get(`${API_URL}api/vtu/get-data-plans`);
     
@@ -37,8 +41,9 @@ const TopUp: React.FC = () => {
                 console.error("Error getting data", error);
             }
         };
+    
         fetchDataPlans();
-    }, []);    
+    }, [formData.service])   
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { id, value } = e.target;
@@ -112,40 +117,55 @@ const TopUp: React.FC = () => {
                     </select>
                 </div>
 
-                <div className="flex flex-col gap-3">
-                    <label htmlFor="name" className="text-semibold">Select Plan Name:</label>
-                    <select
-                        id="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="p-2 outline-none rounded-lg px-5"
-                    >
-                        <option value="">Select a Plan</option>
-                        {dataPlans.map((plan, index) => (
-                        <option key={index} value={plan} className='text-black'>
-                            {plan}
-                        </option>
-                        ))}
-                    </select>
-                </div>
+                {showDataPlansInput ? 
+                   <div className='flex flex-col gap-5'>
+                        <div className="flex flex-col gap-3">
+                            <label htmlFor="name" className="text-semibold">Select Plan Name:</label>
+                            <select
+                                id="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                required
+                                className="p-2 outline-none rounded-lg px-5"
+                            >
+                                <option value="">Select a Plan</option>
+                                {dataPlans.map((plan, index) => (
+                                <option key={index} value={plan} className='text-black'>
+                                    {plan}
+                                </option>
+                                ))}
+                            </select>
+                        </div>
 
-                <div className='flex flex-col gap-3'>
-                    <label htmlFor="amount">Amount:</label>
-                    <select
-                        id="amount"
-                        value={formData.amount}
-                        onChange={handleInputChange}
-                        required
-                        className="p-2 outline-none rounded-lg px-5"
-                    >
-                        {dataAmount.map((amount, index) => (
-                        <option key={index} value={amount} className='text-black'>
-                            {amount}
-                        </option>
-                        ))}
-                    </select>
-                </div>
+                        <div className='flex flex-col gap-3'>
+                            <label htmlFor="amount">Amount:</label>
+                            <select
+                                id="amount"
+                                value={formData.amount}
+                                onChange={handleInputChange}
+                                required
+                                className="p-2 outline-none rounded-lg px-5"
+                            >
+                                {dataAmount.map((amount, index) => (
+                                <option key={index} value={amount} className='text-black'>
+                                    {amount}
+                                </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+                    :
+                    <div className='flex flex-col gap-3'>
+                        <label htmlFor="amount" className="text-semibold">Input Amount</label>
+                        <input
+                            id="amount"
+                            value={formData.amount}
+                            onChange={handleInputChange}
+                            required
+                            className="p-2 outline-none rounded-lg bg-gray-200 px-5 w-full"
+                        />
+                    </div>
+                }
 
                 <div className='flex flex-col gap-3'>
                     <label htmlFor="number">Number:</label>

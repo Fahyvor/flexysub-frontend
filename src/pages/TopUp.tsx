@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../axios/apiUrl';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,38 +15,39 @@ const TopUp: React.FC = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
 
-    // const [dataPlans, setDataPlans] = useState<string[]>([]);
-    // const [dataAmount, setDataAmount] = useState<string[]>([]);
-    // const [showDataPlansInput, setDataPlansInput] = useState<boolean>(false)
+    const [dataPlans, setDataPlans] = useState<string[]>([]);
+    const [dataAmount, setDataAmount] = useState<string[]>([]);
+    const [showDataPlansInput, setDataPlansInput] = useState<boolean>(false)
 
-    // useEffect(() => {
-    //     const fetchDataPlans = async () => {
-    //         if (formData.service !== "Data") {
-    //             // setDataPlansInput(false);
-    //             return;
-    //         }
+    useEffect(() => {
+        console.log(showDataPlansInput);
+        const fetchDataPlans = async () => {
+            if (formData.service !== "data") {
+                setDataPlansInput(false);
+                return;
+            }
     
-    //         // setDataPlansInput(true);
+            setDataPlansInput(true);
     
-    //         try {
-    //             const response = await axios.get(`${API_URL}api/vtu/get-data-plans`);
+            try {
+                const response = await axios.get(`${API_URL}api/vtu/get-data-plans`);
     
-    //             // Log the response to confirm the structure
-    //             console.log("API Response:", response.data);
+                // Log the response to confirm the structure
+                console.log("API Response:", response.data);
     
-    //             if (response.status === 200 && Array.isArray(response.data.data)) {
-    //                 setDataPlans(response.data.data);
-    //                 setDataAmount(response.data.dataAmount);
-    //             } else {
-    //                 console.error("Unexpected data format:", response.data);
-    //             }
-    //         } catch (error) {
-    //             console.error("Error getting data", error);
-    //         }
-    //     };
+                if (response.status === 200 && Array.isArray(response.data.data)) {
+                    setDataPlans(response.data.data);
+                    setDataAmount(response.data.dataAmount);
+                } else {
+                    console.error("Unexpected data format:", response.data);
+                }
+            } catch (error) {
+                console.error("Error getting data", error);
+            }
+        };
     
-    //     fetchDataPlans();
-    // }, [formData.service])   
+        fetchDataPlans();
+    }, [formData.service])   
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { id, value } = e.target;
@@ -55,15 +56,15 @@ const TopUp: React.FC = () => {
             // Check if the changed field is the plan name
             if (id === "name") {
                 // Find the index of the selected plan
-                // const selectedPlanIndex = dataPlans.indexOf(value);
-                // // Use the index to find the corresponding amount
-                // const correspondingAmount = selectedPlanIndex !== -1 ? dataAmount[selectedPlanIndex] : "";
+                const selectedPlanIndex = dataPlans.indexOf(value);
+                // Use the index to find the corresponding amount
+                const correspondingAmount = selectedPlanIndex !== -1 ? dataAmount[selectedPlanIndex] : "";
     
-                // return {
-                //     ...prevData,
-                //     [id]: value, // Update the plan name
-                //     amount: correspondingAmount, // Set the amount based on the plan index
-                // };
+                return {
+                    ...prevData,
+                    [id]: value, // Update the plan name
+                    amount: correspondingAmount, // Set the amount based on the plan index
+                };
             }
     
             // For other fields, update normally
@@ -139,42 +140,44 @@ const TopUp: React.FC = () => {
                     </select>
                 </div>
 
-                   {/* <div className='flex flex-col gap-5'>
-                        <div className="flex flex-col gap-3">
-                            <label htmlFor="name" className="text-semibold">Select Plan Name:</label>
-                            <select
-                                id="name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                required
-                                className="p-2 outline-none rounded-lg px-5"
-                            >
-                                <option value="">Select a Plan</option>
-                                {dataPlans.map((plan, index) => (
-                                <option key={index} value={plan} className='text-black'>
-                                    {plan}
-                                </option>
-                                ))}
-                            </select>
-                        </div>
+                    {formData.service === "data" ?
+                    <div className='flex flex-col gap-5'>
+                            <div className="flex flex-col gap-3">
+                                <label htmlFor="name" className="text-semibold">Select Plan Name:</label>
+                                <select
+                                    id="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    required
+                                    className="p-2 outline-none rounded-lg px-5"
+                                >
+                                    <option value="">Select a Plan</option>
+                                    {dataPlans.map((plan, index) => (
+                                    <option key={index} value={plan} className='text-black'>
+                                        {plan}
+                                    </option>
+                                    ))}
+                                </select>
+                            </div>
 
-                        <div className='flex flex-col gap-3'>
-                            <label htmlFor="amount">Amount:</label>
-                            <select
-                                id="amount"
-                                value={formData.amount}
-                                onChange={handleInputChange}
-                                required
-                                className="p-2 outline-none rounded-lg px-5"
-                            >
-                                {dataAmount.map((amount, index) => (
-                                <option key={index} value={amount} className='text-black'>
-                                    {amount}
-                                </option>
-                                ))}
-                            </select>
-                        </div>
-                    </div> */}
+                            <div className='flex flex-col gap-3'>
+                                <label htmlFor="amount">Amount:</label>
+                                <select
+                                    id="amount"
+                                    value={formData.amount}
+                                    onChange={handleInputChange}
+                                    required
+                                    className="p-2 outline-none rounded-lg px-5"
+                                >
+                                    {dataAmount.map((amount, index) => (
+                                    <option key={index} value={amount} className='text-black'>
+                                        {amount}
+                                    </option>
+                                    ))}
+                                </select>
+                            </div>
+                    </div> 
+                    :
                     <div className='flex flex-col gap-3'>
                         <label htmlFor="amount" className="text-semibold">Input Amount</label>
                         <input
@@ -185,6 +188,7 @@ const TopUp: React.FC = () => {
                             className="p-2 outline-none rounded-lg bg-gray-200 px-5 w-full"
                         />
                     </div>
+                    }
 
                 <div className='flex flex-col gap-3'>
                     <label htmlFor="phone">Number:</label>

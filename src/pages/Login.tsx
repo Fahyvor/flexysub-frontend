@@ -23,7 +23,7 @@ const Login: React.FC = () => {
                 localStorage.setItem('userToken', response.data.data.token);
                 localStorage.setItem('userData', JSON.stringify(response.data.data.user));
                 setTimeout(() => {
-                    window.location.href = "/";
+                    window.location.href = "/dashboard";
                 }, 3000);
             } else {
                 return;
@@ -72,7 +72,7 @@ const Login: React.FC = () => {
                         {showPassword ? <FaRegEye onClick={() => setShowPassword(!showPassword)}/> : <FaRegEyeSlash onClick={() => setShowPassword(!showPassword)}/>} 
                     </div>
                 </div>
-                <button type="submit" disabled={isLoading} className='bg-gold py-3 rounded-lg lg:w-1/3 md:w-1/3 w-full mx-auto my-3'>{isLoading ? "Logging In..." : "Login"}</button>
+                <button type="submit" disabled={isLoading} className='text-white bg-[#f20d45ff] py-3 rounded-lg lg:w-1/3 md:w-1/3 w-full mx-auto my-3'>{isLoading ? "Logging In..." : "Login"}</button>
             </form>
             <p className='text-center my-4'>Don't have an Acccount? <a href='/signup' className='font-semibold text-red-600'>Sign Up</a></p>
         </div>

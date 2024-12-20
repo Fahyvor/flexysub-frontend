@@ -29,23 +29,26 @@ const Dashboard: React.FC = () => {
     }
     return (
         <div className="text-center space-y-4 py-8">
-            <p className='text-start font-bold'>Hello, {name}</p>
+            <div className='flex items-center justify-between'>
+                <p className='text-start font-bold'>Hello, {name}</p>
+                <p className='balance font-bold'>Balance: 1000</p>
+            </div>
             <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold">Welcome to FlexySub</h2>
             <p>Select a service to get started:</p>
-            <div className='fund_wallet lg:w-1/2 md:1/2 w-full mx-auto cursor-pointer rounded-lg bg-gold py-3' onClick={fundWallet}>
+            <div className='fund_wallet lg:w-1/2 md:1/2 w-full mx-auto cursor-pointer rounded-lg text-white bg-[#f20d45ff] py-3' onClick={fundWallet}>
                 <p>Fund Wallet</p>
             </div>
             <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 pt-4'>
-                <Link to="/topup" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold"><IoBarChartSharp className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6' /> <p>Airtime/Data</p> </Link>
-                <Link to="/electricity-bill" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold"><FaRegLightbulb className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/><p>Electricity Bill</p></Link>
-                <Link to="/betting-fund" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold"> <IoFootball className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6' /> <p>Betting Fund</p></Link>
-                <Link to="/airtime-to-cash" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
+                <Link to="/topup" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]"><IoBarChartSharp className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6' /> <p>Airtime/Data</p> </Link>
+                <Link to="/electricity-bill" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]"><FaRegLightbulb className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/><p>Electricity Bill</p></Link>
+                <Link to="/betting-fund" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]"> <IoFootball className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6' /> <p>Betting Fund</p></Link>
+                <Link to="/airtime-to-cash" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
                 <GiCash  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Airtime To Cash</p></Link>
-                <Link to="/cable-subscription" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
+                <Link to="/cable-subscription" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
                 <MdOutlineScreenshotMonitor  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cable Subscription</p></Link>
-                <Link to="/history" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
+                <Link to="/history" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
                 <MdHistoryEdu  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Transaction History</p></Link>
-                <Link to="https://api.whatsapp.com/send/?phone=2348120911936&text&type=phone_number&app_absent=0" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
+                <Link to="https://api.whatsapp.com/send/?phone=2348120911936&text&type=phone_number&app_absent=0" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
                 <SiExpertsexchange  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cypto Exchange</p></Link>
             </div>
 

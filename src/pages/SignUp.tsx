@@ -23,7 +23,6 @@ const SignUp: React.FC = () => {
         name,
         email,
         phone: phoneNumber,
-        address,
         password,
       });
   
@@ -48,14 +47,14 @@ const SignUp: React.FC = () => {
   };
   
   return (
-    <div>
+    <div className='w-full py-7'>
       <div className='toastify-message'>
         <ToastContainer />
       </div>
       <h2 className='text-2xl font-bold mx-auto text-center my-3'>Welcome to Flexysub!</h2>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4 py-3'>
         <div className='flex flex-col gap-4'>
-          <label htmlFor="name" className='font-semibold text-md'>Name:</label>
+          <label htmlFor="name" className='font-semibold text-md'>Full Name:</label>
           <input
             type="text"
             id="name"
@@ -85,16 +84,6 @@ const SignUp: React.FC = () => {
           />
         </div>
         <div className='flex flex-col gap-4'>
-          <label htmlFor="address" className='font-semibold text-md'>Address:</label>
-          <input
-            type="text"
-            id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className='bg-gray-200 border-0 outline-none p-2 rounded-lg'
-          />
-        </div>
-        <div className='flex flex-col gap-4'>
           <label htmlFor="password" className='font-semibold text-md'>Password:</label>
           <div className='flex items-center border bg-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-4'>
             <input
@@ -107,7 +96,7 @@ const SignUp: React.FC = () => {
             {showPassword ? <FaRegEye onClick={() => setShowPassword(!showPassword)}/> : <FaRegEyeSlash onClick={() => setShowPassword(!showPassword)}/>} 
           </div>
         </div>
-        <button type="submit" disabled={isLoading} className='mt-4 bg-gold lg:w-1/3 md:w-1/3 w-full mx-auto p-2 rounded-lg'>{isLoading ? "Signing Up" : "Sign Up"}</button>
+        <button type="submit" disabled={isLoading} className='mt-4 bg-[#f20d45ff] text-white lg:w-1/3 md:w-1/3 w-full mx-auto p-2 rounded-lg'>{isLoading ? "Signing Up" : "Sign Up"}</button>
       </form>
       <p className='text-center my-4'>Have an Account Already? <a href='/login' className='font-semibold text-red-600'>Login</a></p>
     </div>

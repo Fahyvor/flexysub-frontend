@@ -15,7 +15,7 @@ const Home: React.FC = () => {
                 <p className='lg:text-6xl text-3xl font-black lg:leading-relaxed leading-10'>Enhancing Nigeria's Digital <span className="text-[#f20d45ff]">Payments</span></p>
 
                 <p className='leading-loose lg:tracking-wider tracking-normal text-justify lg:text-md text-sm my-4'>
-                    Get Affordable Data Bundles, Earn via Social Tasks, Settle Bills, and Make Virtual Payments with Yanga Plug – Your Gateway to Seamless Digital Transactions.
+                    Get Affordable Data Bundles, Earn via Social Tasks, Settle Bills, and Make Virtual Payments with Flexysub – Your Gateway to Seamless Digital Transactions.
                 </p>
 
                 <div className='flex gap-3'>
@@ -77,7 +77,7 @@ const Home: React.FC = () => {
             <form className='lg:w-1/3 w-5/6 py-6 flex gap-4 lg:flex-row flex-col'>
                 <input type='email'
                 placeholder='Enter your email'
-                className='outline-none border-2 rounded-lg mx-2 p-2 lg:w-0 w-full'
+                className='outline-none border-2 rounded-lg mx-2 p-2 lg:w-30 w-full'
                 />
                 <button className='text-white bg-[#f20d45ff] p-2 rounded-lg'>Subscribe</button>
             </form>

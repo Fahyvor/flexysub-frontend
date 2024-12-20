@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import HomeImage from '../assets/home.png';
-
+import ServicesImage from '../assets/services-image.png';
+import PhoneImage from '../assets/phone.png';
 
 const Services: React.FC = () => {
     const navigate = useNavigate();
@@ -28,9 +28,47 @@ const Services: React.FC = () => {
 
             </div>
 
-            <div className='lg:w-1/2 w-full flex justify-center'>
-                <img src={HomeImage} alt='' className='lg:w-96 lg:h-104'/>
+            <div className='lg:w-1/2 w-full flex justify-center px-3'>
+                <img src={ServicesImage} alt='' className='w-full'/>
             </div>
+        </div>
+
+        <div className="flex lg:flex-row flex-col-reverse gap-4 items-center py-8">
+            <div className="w-[35%] flex justify-center items-center">
+                <img src={PhoneImage} alt='' className='w-30'/>
+            </div>
+            <div className='py-7 w-full lg:w-[65%]'>
+                <p className='text-2xl lg:text-5xl font-bold'>Bills Payment</p>
+
+                <p className='text-lg my-4'>Experience the future of seamless bill payments with Flexysub. Wave goodbye to complications and embrace convenience. Our intuitive platform ensures quick and secure payment for all your utility needs.</p>
+
+                <div className='flex flex-col gap-6 py-6'>
+                    <div className="flex gap-2 items-center">
+                        <div className='bg-[#f20d45ff] flex justify-center items-center px-3 rounded-md text-[#f20d45ff]'>
+    .
+                        </div>
+
+                        <p className='font-md'>Top-up airtime & Data Bundles for all networks</p>
+                    </div>
+
+                    <div className="flex gap-2 items-center">
+                        <div className='bg-[#f20d45ff] flex justify-center items-center px-3 rounded-md text-[#f20d45ff]'>
+    .
+                        </div>
+
+                        <p className='font-md'>Cable subscriptions for DSTV, GOTV, & Startimes</p>
+                    </div>
+
+                    <div className="flex gap-2 items-center">
+                        <div className='bg-[#f20d45ff] flex justify-center items-center px-3 rounded-md text-[#f20d45ff]'>
+    .
+                        </div>
+
+                        <p className='font-md'>Purchase Electricity Units from anywhere in Nigeria</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
   )

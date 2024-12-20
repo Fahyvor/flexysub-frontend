@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp';
 import FundWallet from './pages/FundWallet';
 import About from './pages/About';
 import Services from './pages/Services';
+import ContactUs from './pages/ContactUs';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/fund-wallet" element={<FundWallet />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<ContactUs />} />
         </Routes>
       </div>
       <Footer />

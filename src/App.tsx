@@ -15,6 +15,7 @@ import Footer from './component/Footer';
 import SignUp from './pages/SignUp';
 import FundWallet from './pages/FundWallet';
 import About from './pages/About';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/fund-wallet" element={<FundWallet />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </div>
       <Footer />

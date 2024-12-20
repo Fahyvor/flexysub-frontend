@@ -37,7 +37,7 @@ const Home: React.FC = () => {
 
         <div className="seamless-services py-9">
             <p className='text-4xl font-bold text-center my-3'>Get To Enjoy Our Seamless <span className='text-[#f20d45ff]'>Services</span></p>
-            <div className='flex gap-3 lg:flex-row flex-col'>
+            <div className='flex gap-6 lg:flex-row flex-col'>
                 <div className="p-1 rounded-lg shadow-2xl flex flex-col gap-5 pb-6">
                     <img src={CheapData} alt='' className='' />
                     <p className='font-bold mx-4 text-sm'>AFFORDABLE DATA PLANS</p>
@@ -74,10 +74,10 @@ const Home: React.FC = () => {
             <p className='lg:text-3xl font-bold'>Subscribe To Our NewsLetter</p>
             <p className='w-2/3 text-center mx-auto'>Stay connected with Flexysub by signing up for our newsletter to receive updates, promotions, and insights to enhance your experience with our platform</p>
 
-            <form className='w-1/3 flex lg:flex-row flex-col'>
+            <form className='lg:w-1/3 w-5/6 py-6 flex gap-4 lg:flex-row flex-col'>
                 <input type='email'
                 placeholder='Enter your email'
-                className='outline-none border-2 rounded-lg mx-2 p-2 '
+                className='outline-none border-2 rounded-lg mx-2 p-2 lg:w-0 w-full'
                 />
                 <button className='text-white bg-[#f20d45ff] p-2 rounded-lg'>Subscribe</button>
             </form>

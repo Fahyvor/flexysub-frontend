@@ -14,6 +14,7 @@ import Support from './pages/Support';
 import Footer from './component/Footer';
 import SignUp from './pages/SignUp';
 import FundWallet from './pages/FundWallet';
+import About from './pages/About';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/support" element={<Support />} />
           <Route path="/fund-wallet" element={<FundWallet />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
       <Footer />

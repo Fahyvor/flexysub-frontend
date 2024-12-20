@@ -1,57 +1,89 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
-import { IoBarChartSharp } from "react-icons/io5";
-import { FaRegLightbulb } from "react-icons/fa";
-import { IoFootball } from "react-icons/io5";
-import { GiCash } from "react-icons/gi";
-import { MdOutlineScreenshotMonitor, MdHistoryEdu } from "react-icons/md";
-import { SiExpertsexchange } from "react-icons/si";
+import React from 'react'
+import HomeImage from '../assets/home.png';
+import CheapData from '../assets/data.png';
+import Payment from '../assets/payments.png'
+import Cards from '../assets/cards.png';
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
-    const [name, setName] = useState('');
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        try {
-            const userDetails = JSON.parse(localStorage.getItem('userData') || '{}');
-            if (userDetails && userDetails.name) {
-                setName(userDetails.name);
-            } else {
-                setName('');
-            }
-        } catch (error) {
-            console.error('Failed to parse user data from local storage:', error);
-            setName('');
-        }
-    }, []);
+  return (
+    <div>
+        <div className="home_body flex lg:flex-row flex-col gap-4 w-full items-center">
+            <div className='lg:w-1/2 w-full'>
+                <p className='lg:text-6xl text-3xl font-black lg:leading-relaxed leading-10'>Enhancing Nigeria's Digital <span className="text-[#f20d45ff]">Payments</span></p>
 
-    const fundWallet = () => {
-        window.location.href="/fund-wallet"
-    }
-    return (
-        <div className="text-center space-y-4 py-8">
-            <p className='text-start font-bold'>Hello, {name}</p>
-            <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold">Welcome to FlexySub</h2>
-            <p>Select a service to get started:</p>
-            <div className='fund_wallet lg:w-1/2 md:1/2 w-full mx-auto cursor-pointer rounded-lg bg-gold py-3' onClick={fundWallet}>
-                <p>Fund Wallet</p>
-            </div>
-            <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 pt-4'>
-                <Link to="/topup" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold"><IoBarChartSharp className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6' /> <p>Airtime/Data</p> </Link>
-                <Link to="/electricity-bill" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold"><FaRegLightbulb className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/><p>Electricity Bill</p></Link>
-                <Link to="/betting-fund" className=" flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold"> <IoFootball className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6' /> <p>Betting Fund</p></Link>
-                <Link to="/airtime-to-cash" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
-                <GiCash  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Airtime To Cash</p></Link>
-                <Link to="/cable-subscription" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
-                <MdOutlineScreenshotMonitor  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cable Subscription</p></Link>
-                <Link to="/history" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
-                <MdHistoryEdu  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Transaction History</p></Link>
-                <Link to="https://api.whatsapp.com/send/?phone=2348120911936&text&type=phone_number&app_absent=0" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-gold border-t-4 border-gold'>
-                <SiExpertsexchange  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cypto Exchange</p></Link>
+                <p className='leading-loose lg:tracking-wider tracking-normal text-justify lg:text-md text-sm my-4'>
+                    Get Affordable Data Bundles, Earn via Social Tasks, Settle Bills, and Make Virtual Payments with Yanga Plug – Your Gateway to Seamless Digital Transactions.
+                </p>
+
+                <div className='flex gap-3'>
+                    <div className='sign-in rounded-lg text-white cursor-pointer     bg-[#f20d45ff]' onClick={() => navigate('/login')}>
+                        <p className='text-sm p-2 px-4'>Sign In</p>
+                    </div>
+
+                    <div className='sign-up rounded-lg cursor-pointer border-[1px] border-[#f20d45ff]' onClick={() => navigate('/signup')}>
+                        <p className='text-sm p-2 px-4'>Sign Up</p>
+                    </div>
+                </div>
+
             </div>
 
-            
+            <div className='lg:w-1/2 w-full flex justify-center'>
+                <img src={HomeImage} alt='' className='lg:w-96 lg:h-104'/>
+            </div>
         </div>
-    )
+
+        <div className="seamless-services py-9">
+            <p className='text-4xl font-bold text-center my-3'>Get To Enjoy Our Seamless <span className='text-[#f20d45ff]'>Services</span></p>
+            <div className='flex gap-3 lg:flex-row flex-col'>
+                <div className="p-1 rounded-lg shadow-2xl flex flex-col gap-5 pb-6">
+                    <img src={CheapData} alt='' className='' />
+                    <p className='font-bold mx-4 text-sm'>AFFORDABLE DATA PLANS</p>
+                    <p className='text-sm mx-4 w-5/6'>Our affordable data plans keep you connected effortlessly.</p>
+
+                    <div className='mx-4 py-2 cursor-pointer text-white text-sm font-semibold lg:w-1/3 w-3/4 text-center rounded-md bg-[#f20d45ff]' onClick={() => navigate('/services')}>
+                        <p>Learn More</p>
+                    </div>
+                </div>
+
+                <div className="p-1 rounded-lg shadow-2xl flex flex-col gap-5 pb-6">
+                    <img src={Payment} alt='' className='' />
+                    <p className='font-bold mx-4 text-sm'>CABLE SUBSCRIPTION</p>
+                    <p className='text-sm mx-4 w-5/6'>Our budget-friendly cable plans ensure you stay entertained without any hassle.</p>
+
+                    <div className='mx-4 py-2 cursor-pointer text-white text-sm font-semibold lg:w-1/3 w-3/4 text-center rounded-md bg-[#f20d45ff]' onClick={() => navigate('/services')}>
+                        <p>Learn More</p>
+                    </div>
+                </div>
+                <div className="p-1 rounded-lg shadow-2xl flex flex-col gap-5 pb-6">
+                    <img src={Cards} alt='' className='' />
+                    <p className='font-bold mx-4 text-sm'>ELECTRICITY SUBSCRIPTION</p>
+                    <p className='text-sm mx-4 w-5/6'>
+                    Our affordable electricity plans ensure you stay powered up without any hassle.</p>
+
+                    <div className='mx-4 py-2 cursor-pointer text-white text-sm font-semibold lg:w-1/3 w-3/4 text-center rounded-md bg-[#f20d45ff]' onClick={() => navigate('/services')}>
+                        <p>Learn More</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className="news_letter py-8 flex flex-col items-center gap-4">
+            <p className='lg:text-3xl font-bold'>Subscribe To Our NewsLetter</p>
+            <p className='w-2/3 text-center mx-auto'>Stay connected with Flexysub by signing up for our newsletter to receive updates, promotions, and insights to enhance your experience with our platform</p>
+
+            <form className='w-1/3 flex lg:flex-row flex-col'>
+                <input type='email'
+                placeholder='Enter your email'
+                className='outline-none border-2 rounded-lg mx-2 p-2 '
+                />
+                <button className='text-white bg-[#f20d45ff] p-2 rounded-lg'>Subscribe</button>
+            </form>
+        </div>
+    </div>
+  )
 }
 
 export default Home

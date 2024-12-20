@@ -18,20 +18,23 @@ const Nav: React.FC = () => {
         }
     }, []); 
     return (
-        <div className="bg-red-600 p-4 bottom-0">
+        <div className="bg-[#f20d45ff] p-4 bottom-0">
             <div className="flex justify-between items-center text-white">
                 <Link to="/" className="text-xl font-bold">
-                    <img src={Logo} alt='' className='w-16 h-10'/>
+                    <img src={Logo} alt='' className='w-16 h-10 shadow-lg '/>
                     {/* <p>FLEXYSUB</p> */}
                 </Link>
-                <div className=''>
+                {/* <div className=''>
                     <p>Balance: <span className='font-bold'>N1,000</span></p>
-                </div>
-                <div className="space-x-4 lg:flex md:flex hidden items-center">
-                    <Link to="/dashboard">Dashboard</Link>
+                </div> */}
+                <div className="gap-10 px-10 lg:flex md:flex hidden items-center">
+                    <Link to="/">Home</Link>
+                    <Link to="/services">Services</Link>
+                    <Link to="/about">About Us</Link>
+                    <Link to="/contact">Contact</Link>
                     {isLoggedIn ? 
-                    <Link to="/profile" className="block py-2" onClick={() => setIsMenuOpen(false)}>Profile</Link>
-                    : <Link to="/login" className="block py-2" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                    <Link to="/dashboard" className="block py-2 border-2 border-white p-3 rounded-lg" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
+                    : <Link to="/login" className="block py-2 border-2 border-white p-3 rounded-lg" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
                     }
                 </div>
 
@@ -40,20 +43,20 @@ const Nav: React.FC = () => {
                 </div>
             </div>
             <div
-                className={`fixed top-0 left-0 h-full bg-red-600 text-white transition-transform transform ${
+                className={`fixed top-0 left-0 h-full bg-[#f20d45ff] text-white transition-transform transform ${
                     isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
                 style={{ width: '200px' }}
             >
-                <div className="p-4 pt-6">
-                    <Link to="/dashboard" className="block py-2" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
+                <div className="p-4 pt-6 flex flex-col gap-7">
+                    <Link to="/">Home</Link>
+                    <Link to="/services">Services</Link>
+                    <Link to="/about">About Us</Link>
+                    <Link to="/contact">Contact</Link>
                     {isLoggedIn ? 
-                    <Link to="/profile" className="block py-2" onClick={() => setIsMenuOpen(false)}>Profile</Link>
-                    : <Link to="/login" className="block py-2" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                    <Link to="/dashboard" className="block py-2 border-2 border-white p-3 w-3/4 rounded-lg" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
+                    : <Link to="/login" className="block py-2 border-2 border-white p-3 rounded-lg" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
                     }
-                    {/* <div className='my-2'>
-                        <p>Balance: <span className='font-bold'>N1,000</span></p>
-                    </div> */}
                 </div>
             </div>
         </div>

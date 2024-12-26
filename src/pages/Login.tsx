@@ -22,9 +22,7 @@ const Login: React.FC = () => {
                 console.log(response.data.data);
                 localStorage.setItem('userToken', response.data.data.token);
                 localStorage.setItem('userData', JSON.stringify(response.data.data.user));
-                setTimeout(() => {
-                    window.location.href = "/dashboard";
-                }, 3000);
+                window.location.href = "/dashboard";
             } else {
                 return;
             }

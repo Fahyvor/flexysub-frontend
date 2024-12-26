@@ -162,19 +162,12 @@ const TopUp: React.FC = () => {
 
                             <div className='flex flex-col gap-3'>
                                 <label htmlFor="amount">Amount:</label>
-                                <select
+                                <input
                                     id="amount"
                                     value={formData.amount}
-                                    onChange={handleInputChange}
-                                    required
-                                    className="p-2 outline-none rounded-lg px-5"
-                                >
-                                    {dataAmount.map((amount, index) => (
-                                    <option key={index} value={amount} className='text-black'>
-                                        {amount}
-                                    </option>
-                                    ))}
-                                </select>
+                                    readOnly
+                                    className="p-2 outline-none rounded-lg bg-gray-200 px-5"
+                                />
                             </div>
                     </div> 
                     :

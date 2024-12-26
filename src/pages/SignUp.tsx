@@ -95,7 +95,7 @@ const SignUp: React.FC = () => {
             {showPassword ? <FaRegEye onClick={() => setShowPassword(!showPassword)}/> : <FaRegEyeSlash onClick={() => setShowPassword(!showPassword)}/>} 
           </div>
         </div>
-        <button type="submit" disabled={isLoading} className='mt-4 bg-[#f20d45ff] text-white lg:w-1/3 md:w-1/3 w-full mx-auto p-2 rounded-lg'>{isLoading ? "Signing Up" : "Sign Up"}</button>
+        <button type="submit" disabled={isLoading} className='mt-4 bg-[#f20d45ff] text-white lg:w-1/3 md:w-1/3 w-full mx-auto p-2 rounded-lg'>{isLoading ? "Signing Up..." : "Sign Up"}</button>
       </form>
       <p className='text-center my-4'>Have an Account Already? <a href='/login' className='font-semibold text-red-600'>Login</a></p>
     </div>

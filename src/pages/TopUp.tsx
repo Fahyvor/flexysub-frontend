@@ -164,7 +164,7 @@ const TopUp: React.FC = () => {
                                 <label htmlFor="amount">Amount:</label>
                                 <input
                                     id="amount"
-                                    value={formData.amount}
+                                    value={`N${formData.amount}`}
                                     readOnly
                                     className="p-2 outline-none rounded-lg bg-gray-200 px-5"
                                 />

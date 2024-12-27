@@ -195,7 +195,7 @@ const TopUp: React.FC = () => {
                     />
                 </div>
 
-                <button type="submit" className='bg-gold p-3 rounded-lg lg:w-1/2 md:w-1/2 w-full my-4'>{isLoading ? "Submitting" : "Submit"}</button>
+                <button type="submit" className='bg-[#f20d45ff] text-white p-3 rounded-lg lg:w-1/2 md:w-1/2 w-full my-4'>{isLoading ? "Submitting" : "Submit"}</button>
             </form>
         </div>
     );

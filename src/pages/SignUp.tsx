@@ -7,7 +7,8 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa6";
 
 const SignUp: React.FC = () => {
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +20,8 @@ const SignUp: React.FC = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(`${API_URL}api/auth/register`, {
-        name,
+        firstName,
+        lastName,
         email,
         phone: phoneNumber,
         password,
@@ -52,16 +54,29 @@ const SignUp: React.FC = () => {
       </div>
       <h2 className='text-2xl font-bold mx-auto text-center my-3'>Welcome to Flexysub!</h2>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4 py-3'>
+        <div className='grid lg:grid-cols-2 gap-4 md:grid-cols-2 grid-cols-1'>
         <div className='flex flex-col gap-4'>
-          <label htmlFor="name" className='font-semibold text-md'>Full Name:</label>
+          <label htmlFor="firstName" className='font-semibold text-md'>First Name:</label>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             className='bg-gray-200 border-0 outline-none p-2 rounded-lg'
           />
         </div>
+
+        <div className='flex flex-col gap-4'>
+          <label htmlFor="lastName" className='font-semibold text-md'>Last Name:</label>
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className='bg-gray-200 border-0 outline-none p-2 rounded-lg'
+          />
+        </div>
+
         <div className='flex flex-col gap-4'>
           <label htmlFor="email" className='font-semibold text-md'>Email:</label>
           <input
@@ -72,6 +87,7 @@ const SignUp: React.FC = () => {
             className='bg-gray-200 border-0 outline-none p-2 rounded-lg'
           />
         </div>
+
         <div className='flex flex-col gap-4'>
           <label htmlFor="phoneNumber" className='font-semibold text-md'>Phone Number:</label>
           <input
@@ -82,6 +98,7 @@ const SignUp: React.FC = () => {
             className='bg-gray-200 border-0 outline-none p-2 rounded-lg'
           />
         </div>
+
         <div className='flex flex-col gap-4'>
           <label htmlFor="password" className='font-semibold text-md'>Password:</label>
           <div className='flex items-center border bg-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-4'>
@@ -94,6 +111,7 @@ const SignUp: React.FC = () => {
             />
             {showPassword ? <FaRegEye onClick={() => setShowPassword(!showPassword)}/> : <FaRegEyeSlash onClick={() => setShowPassword(!showPassword)}/>} 
           </div>
+        </div>
         </div>
         <button type="submit" disabled={isLoading} className='mt-4 bg-[#f20d45ff] text-white lg:w-1/3 md:w-1/3 w-full mx-auto p-2 rounded-lg'>{isLoading ? "Signing Up..." : "Sign Up"}</button>
       </form>

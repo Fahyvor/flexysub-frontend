@@ -5,7 +5,7 @@ import { FaRegLightbulb } from "react-icons/fa";
 import { IoFootball } from "react-icons/io5";
 import { GiCash } from "react-icons/gi";
 import { MdOutlineScreenshotMonitor, MdHistoryEdu } from "react-icons/md";
-import { SiExpertsexchange } from "react-icons/si";
+// import { SiExpertsexchange } from "react-icons/si";
 
 const Dashboard: React.FC = () => {
     const [name, setName] = useState('');
@@ -48,8 +48,8 @@ const Dashboard: React.FC = () => {
                 <MdOutlineScreenshotMonitor  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cable Subscription</p></Link>
                 <Link to="/history" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
                 <MdHistoryEdu  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Transaction History</p></Link>
-                <Link to="https://api.whatsapp.com/send/?phone=2348120911936&text&type=phone_number&app_absent=0" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
-                <SiExpertsexchange  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cypto Exchange</p></Link>
+                {/* <Link to="https://api.whatsapp.com/send/?phone=2348120911936&text&type=phone_number&app_absent=0" className=' flex flex-col gap-2 items-center shadow-lg p-3 py-12 hover:bg-[#f20d45ff] border-t-4 border-[#f20d45ff]'>
+                <SiExpertsexchange  className='lg:w-12 lg:h-12 md:w-12 md:h-12 w-6 h-6'/> <p>Cypto Exchange</p></Link> */}
             </div>
 
             

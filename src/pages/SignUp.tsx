@@ -10,7 +10,7 @@ const SignUp: React.FC = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +23,7 @@ const SignUp: React.FC = () => {
         firstName,
         lastName,
         email,
-        phone: phoneNumber,
+        phone,
         password,
       });
   
@@ -93,8 +93,8 @@ const SignUp: React.FC = () => {
           <input
             type="tel"
             id="phoneNumber"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             className='bg-gray-200 border-0 outline-none p-2 rounded-lg'
           />
         </div>

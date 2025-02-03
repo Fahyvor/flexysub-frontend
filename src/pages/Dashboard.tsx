@@ -12,7 +12,7 @@ const Dashboard: React.FC = () => {
 
     useEffect(() => {
         try {
-            const userDetails = JSON.parse(localStorage.getItem('userData') || '{}');
+            const userDetails = JSON.parse(sessionStorage.getItem('userData') || '{}');
             if (userDetails && userDetails.name) {
                 setName(userDetails.name);
             } else {

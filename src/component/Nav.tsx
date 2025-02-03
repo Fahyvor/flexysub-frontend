@@ -10,10 +10,10 @@ const Nav: React.FC = () => {
 
     useEffect(() => {
         try {
-            const userDetails = JSON.parse(localStorage.getItem('userData') || 'null');
+            const userDetails = JSON.parse(sessionStorage.getItem('userData') || 'null');
             setIsLoggedIn(!!userDetails);
         } catch (error) {
-            console.error("Failed to parse user data from localStorage:", error);
+            console.error("Failed to parse user data from sessionStorage:", error);
             setIsLoggedIn(false);
         }
     }, []); 

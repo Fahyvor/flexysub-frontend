@@ -18,6 +18,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
 import GetAllUsers from './pages/GetAllUsers';
+import ResetPassword from './pages/ResetPassword'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/get-all-users" element={<GetAllUsers />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Routes>
       </div>
       <Footer />

@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
     const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
     useEffect(() => {
-        const storedUserDetails = localStorage.getItem('userData');
+        const storedUserDetails = sessionStorage.getItem('userData');
         if (storedUserDetails) {
             setUserDetails(JSON.parse(storedUserDetails));
         } else {

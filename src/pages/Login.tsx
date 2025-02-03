@@ -20,8 +20,8 @@ const Login: React.FC = () => {
             if(response.status === 200) {
                 toast.success(response.data.message);
                 console.log(response.data.data);
-                localStorage.setItem('userToken', response.data.data.token);
-                localStorage.setItem('userData', JSON.stringify(response.data.data.user));
+                sessionStorage.setItem('userToken', response.data.data.token);
+                sessionStorage.setItem('userData', JSON.stringify(response.data.data.user));
                 window.location.href = "/dashboard";
             } else {
                 return;
@@ -69,6 +69,9 @@ const Login: React.FC = () => {
                         />
                         {showPassword ? <FaRegEye onClick={() => setShowPassword(!showPassword)}/> : <FaRegEyeSlash onClick={() => setShowPassword(!showPassword)}/>} 
                     </div>
+                </div>
+                <div className="flex justify-end">
+                    <a href="/reset-password" className='text-right text-xs font-semibold text-red-600'>Forgot Password?</a>
                 </div>
                 <button type="submit" disabled={isLoading} className='text-white bg-[#f20d45ff] py-3 rounded-lg lg:w-1/3 md:w-1/3 w-full mx-auto my-3'>{isLoading ? "Logging In..." : "Login"}</button>
             </form>

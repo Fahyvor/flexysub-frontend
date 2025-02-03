@@ -17,7 +17,7 @@ const ElectricityBill: React.FC = () => {
             try {
                 const response = await axios.get(`${API_URL}api/electricity/providers`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('userToken')}`,
+                        'Authorization': `Bearer ${sessionStorage.getItem('userToken')}`,
                     },
                 });
     
@@ -46,7 +46,7 @@ const ElectricityBill: React.FC = () => {
                 provider: selectedProvider,
             }, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('userToken')}`,
+                    'Authorization': `Bearer ${sessionStorage.getItem('userToken')}`,
                     'Content-Type': 'application/json',
                 },
             });

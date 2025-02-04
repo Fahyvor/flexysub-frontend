@@ -22,7 +22,6 @@ const Login: React.FC = () => {
                 console.log(response.data.data);
                 sessionStorage.setItem('userToken', response.data.data.token);
                 sessionStorage.setItem('userData', JSON.stringify(response.data.data.user));
-                window.location.href = "/dashboard";
             } else {
                 return;
             }
@@ -36,6 +35,9 @@ const Login: React.FC = () => {
             }
         } finally {
             setIsLoading(false);
+            setTimeout(() => {
+                window.location.href = "/dashboard";
+            }, 3000);
         }
     };
 

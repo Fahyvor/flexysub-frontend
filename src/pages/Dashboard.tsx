@@ -8,19 +8,19 @@ import { MdOutlineScreenshotMonitor, MdHistoryEdu } from "react-icons/md";
 // import { SiExpertsexchange } from "react-icons/si";
 
 const Dashboard: React.FC = () => {
-    const [name, setName] = useState('');
+    const [firstName, setFirstName] = useState('');
 
     useEffect(() => {
         try {
             const userDetails = JSON.parse(sessionStorage.getItem('userData') || '{}');
-            if (userDetails && userDetails.name) {
-                setName(userDetails.name);
+            if (userDetails && userDetails.firstName) {
+                setFirstName(userDetails.firstName);
             } else {
-                setName('');
+                setFirstName('');
             }
         } catch (error) {
             console.error('Failed to parse user data from local storage:', error);
-            setName('');
+            setFirstName('');
         }
     }, []);
 
@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
     return (
         <div className="text-center space-y-4 py-8">
             <div className='flex items-center justify-between'>
-                <p className='text-start font-bold'>Hello, {name}</p>
+                <p className='text-start font-bold'>Hello, {firstName}</p>
                 <p className='balance font-bold'>Balance: 1000</p>
             </div>
             <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold">Welcome to FlexySub</h2>

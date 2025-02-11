@@ -35,7 +35,9 @@ const UpdateAccountBalance: React.FC = () => {
       const response = await axios.post(
         `${API_URL}api/auth/update-balance`,
         { accountNumber: accountNumber.trim(), amount },
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { 
+          Authorization: `Bearer ${sessionStorage.getItem('userToken')}`, 
+          "Content-Type": "application/json" } }
       );
 
       if (response.status === 200) {

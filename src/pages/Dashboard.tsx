@@ -5,16 +5,44 @@ import { FaRegLightbulb } from "react-icons/fa";
 import { IoFootball } from "react-icons/io5";
 import { GiCash } from "react-icons/gi";
 import { MdOutlineScreenshotMonitor, MdHistoryEdu } from "react-icons/md";
+import axios from 'axios'
+import { API_URL } from '../axios/apiUrl'
 // import { SiExpertsexchange } from "react-icons/si";
 
 const Dashboard: React.FC = () => {
     const [firstName, setFirstName] = useState('');
+    const [balance, setBalance] = useState(0);
+
+    useEffect(() => {
+        const fetchUserBalance = async () => {
+            try {
+                const response = await axios.get(`${API_URL}api/auth/get-user`, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${sessionStorage.getItem('userToken')}`
+                    }
+                })
+                if(response.status == 200) {
+                    console.log(response.data)
+                    sessionStorage.setItem('userData', JSON.stringify(response.data))
+                } else {
+                    console.log(response.data)
+                }
+            } catch (error) {
+                console.error('Failed to fetch user balance:', error);
+            }
+
+        }
+
+        fetchUserBalance();
+    }, [])
 
     useEffect(() => {
         try {
             const userDetails = JSON.parse(sessionStorage.getItem('userData') || '{}');
             if (userDetails && userDetails.firstName) {
                 setFirstName(userDetails.firstName);
+                setBalance(userDetails.accountBalance);
             } else {
                 setFirstName('');
             }
@@ -31,7 +59,7 @@ const Dashboard: React.FC = () => {
         <div className="text-center space-y-4 py-8">
             <div className='flex items-center justify-between'>
                 <p className='text-start font-bold'>Hello, {firstName}</p>
-                <p className='balance font-bold'>Balance: 1000</p>
+                <p className='balance font-bold'>Balance: N{balance}</p>
             </div>
             <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold">Welcome to FlexySub</h2>
             <p>Select a service to get started:</p>

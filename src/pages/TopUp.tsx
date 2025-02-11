@@ -81,11 +81,21 @@ const TopUp: React.FC = () => {
         setIsLoading(true);
         try {
             if(formData.service === "airtime") {
-                const response = await axios.post(`${API_URL}api/vtu/buy-airtime`, formData);
+                const response = await axios.post(`${API_URL}api/vtu/buy-airtime`, formData, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${sessionStorage.getItem('userToken')}`
+                    }
+                });
                 toast.success(response.data.data.response_description);
                 console.log('Response:', response.data);
             } else {
-                const response = await axios.post(`${API_URL}api/vtu/buy-data`, formData);
+                const response = await axios.post(`${API_URL}api/vtu/buy-data`, formData, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${sessionStorage.getItem('userToken')}`
+                    }
+                });
                 toast.success(response.data.message);
                 console.log('Response:', response.data);
             }
